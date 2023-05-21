@@ -25,7 +25,7 @@ namespace Surv
 
         public void Rotation(InputAction.CallbackContext context)
         {
-            // TODO
+            _hero.mousePosition = context.ReadValue<Vector2>();
         }
     }
 }

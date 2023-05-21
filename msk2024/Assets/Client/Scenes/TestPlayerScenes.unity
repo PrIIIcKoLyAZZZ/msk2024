@@ -256,6 +256,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2fca154b-0690-414e-b53a-01a2946914c6
     m_ActionName: Hero/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 240032889}
+        m_TargetAssemblyTypeName: Surv.PlayerInput, Assembly-CSharp
+        m_MethodName: Rotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4e319aa8-d774-41ff-a0c3-c474430b9fbd
+    m_ActionName: Hero/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -280,9 +296,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 100
   _rotateSpeed: 10
+  heroCamera: {fileID: 1562447949}
   directionZ: 0
   directionX: 0
-  directionRotate: 0
+  mousePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &338816419
 GameObject:
   m_ObjectHideFlags: 0
