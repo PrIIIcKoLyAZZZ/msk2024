@@ -7,6 +7,7 @@ namespace Surv
     public class PlayerInput : MonoBehaviour
     {
         [SerializeField] private HeroMover _hero;
+        [SerializeField] private CameraMover _camera;
 
         public void FrontBackMovement(InputAction.CallbackContext context)
         {
@@ -26,6 +27,11 @@ namespace Surv
         public void Rotation(InputAction.CallbackContext context)
         {
             _hero.mousePosition = context.ReadValue<Vector2>();
+        }
+
+        public void CameraRotation(InputAction.CallbackContext context)
+        {
+            _camera.rotateDirection = context.ReadValue<float>();
         }
     }
 }

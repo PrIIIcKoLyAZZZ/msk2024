@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-
-    private Vector3 offset = new Vector3(0, 8, -4);
+    [SerializeField] private float _cameraSpeed;
+    public float rotateDirection;
 
     private void LateUpdate()
     {
-        transform.position = _target.position + offset;
+        transform.position = _target.position;
+        transform.Rotate(0, rotateDirection * _cameraSpeed, 0);
     }
 }
