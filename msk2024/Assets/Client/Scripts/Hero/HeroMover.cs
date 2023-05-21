@@ -18,10 +18,12 @@ namespace Surv
         private Vector3 absMousePosition;
 
         private Rigidbody _rigidbody;
+        private Animator _animator;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _animator = GetComponent<Animator>();
         }
 
         private Quaternion getAngleToCursore()
@@ -36,6 +38,7 @@ namespace Surv
         private void FixedUpdate()
         {
             Vector3 force = new Vector3(directionX, 0, directionZ) * _moveSpeed;
+            _animator.SetBool("is-running", directionX != 0 || directionZ != 0);
             _rigidbody.AddRelativeForce(force);
             
              _rigidbody.rotation = getAngleToCursore();
