@@ -21,8 +21,11 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private Hero _hero;
     [SerializeField] private float _forceMove;
 
+    private Animator _animator;
+
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
@@ -63,6 +66,7 @@ public class FieldOfView : MonoBehaviour
                     canSeePlayer = true;
                     _rigidbody.rotation = getAngleToHero();
                     _rigidbody.AddRelativeForce(Vector3.forward * _forceMove);
+                    _animator.Play("zombie_walk_forward");
                 }
                 else
                     canSeePlayer = false;
