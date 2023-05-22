@@ -21,7 +21,9 @@ namespace Surv
 
         public void Fire(InputAction.CallbackContext context)
         {
-            Debug.Log("GUN!");
+            //Debug.Log(context.phase);
+            if(context.phase == InputActionPhase.Performed)
+                _hero.Shooting();
         }
 
         public void Rotation(InputAction.CallbackContext context)
