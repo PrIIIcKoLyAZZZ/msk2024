@@ -190,6 +190,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54174046382449110, guid: a8145fd98e506094980d05080bde9072, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114062226022497710, guid: a8145fd98e506094980d05080bde9072, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8145fd98e506094980d05080bde9072, type: 3}
 --- !u!1 &102413910 stripped
@@ -202,6 +210,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4247854720195949508, guid: 9f9c6788198aee942bbff081419943df, type: 3}
   m_PrefabInstance: {fileID: 5753718891591423763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &240032896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 240032888, guid: 9f9c6788198aee942bbff081419943df, type: 3}
+  m_PrefabInstance: {fileID: 5753718891591423763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102413910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb0d7039d9d01944b867ac53c97f920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &338816419
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
-  angle: 30
+  angle: 45
   playerRef: {fileID: 102413910}
   targetMask:
     serializedVersion: 2
@@ -666,6 +685,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   canSeePlayer: 0
+  _rigidbody: {fileID: 1875521820}
+  _hero: {fileID: 240032896}
+  _forceMove: 80
+--- !u!54 &1875521820 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 54174046382449110, guid: a8145fd98e506094980d05080bde9072, type: 3}
+  m_PrefabInstance: {fileID: 97162332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2036949394
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 4247854720195588004, guid: 9f9c6788198aee942bbff081419943df, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247854720195588004, guid: 9f9c6788198aee942bbff081419943df, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4247854720195588006, guid: 9f9c6788198aee942bbff081419943df, type: 3}
       propertyPath: m_Layer

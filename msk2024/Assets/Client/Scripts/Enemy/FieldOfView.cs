@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Surv;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
@@ -15,6 +16,10 @@ public class FieldOfView : MonoBehaviour
     public LayerMask obstructionMask;
 
     public bool canSeePlayer;
+
+    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Hero _hero;
+    [SerializeField] private float _forceMove;
 
     private void Start()
     {
@@ -31,6 +36,13 @@ public class FieldOfView : MonoBehaviour
             yield return wait;
             FieldOfViewCheck();
         }
+    }
+    
+    private Quaternion getAngleToHero()
+    {
+        Vector3 lookDir = _hero.transform.position - _rigidbody.position;
+        float angle1 = Mathf.Atan2(lookDir.z, lookDir.x) * Mathf.Rad2Deg - 90f;
+        return Quaternion.Euler(0, -angle1, 0);
     }
 
     private void FieldOfViewCheck()
@@ -49,7 +61,8 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                    Debug.DrawRay(transform.position, directionToTarget, Color.green);
+                    _rigidbody.rotation = getAngleToHero();
+                    _rigidbody.AddRelativeForce(Vector3.forward * _forceMove);
                 }
                 else
                     canSeePlayer = false;
