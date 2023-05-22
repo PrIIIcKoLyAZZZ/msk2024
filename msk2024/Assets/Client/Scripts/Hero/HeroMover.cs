@@ -11,7 +11,8 @@ namespace Surv
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private Camera heroCamera;
-
+        [SerializeField] private Shoot _shoot;
+ 
         public float directionZ;
         public float directionX;
         public Vector3 mousePosition;
@@ -33,6 +34,11 @@ namespace Surv
             Vector3 lookDir = absMousePosition - _rigidbody.position;
             float angle = Mathf.Atan2(lookDir.z, lookDir.x) * Mathf.Rad2Deg - 90f;
             return Quaternion.Euler(0, -angle, 0);
+        }
+
+        public void Shooting()
+        {
+            _shoot.Shooting();
         }
 
         private void FixedUpdate()

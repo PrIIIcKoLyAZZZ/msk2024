@@ -6,15 +6,5 @@ namespace Surv
 {
     public class Hero : MonoBehaviour
     {
-        void Awake()
-        {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
