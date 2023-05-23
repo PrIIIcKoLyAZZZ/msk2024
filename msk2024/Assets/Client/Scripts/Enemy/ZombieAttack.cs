@@ -9,6 +9,8 @@ public class ZombieAttack : MonoBehaviour
     [SerializeField] private BoxCollider _trigger;
     [SerializeField] private Animator _animator ;
     [SerializeField] private int _damage;
+    [SerializeField] private float _whenDamadge;
+    private float animationDuration = 1.5f;
 
     private bool isHit;
 
@@ -26,7 +28,7 @@ public class ZombieAttack : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Hero hero = other.GetComponentInParent<Hero>();
-        if (hero != null && time > 1.5)
+        if (hero != null && time > animationDuration)
         {
             Debug.Log(hero);
             _animator.SetTrigger("is-attack");
@@ -34,7 +36,7 @@ public class ZombieAttack : MonoBehaviour
             time = 0;
         }
 
-        if (hero != null && time < 1.5 && time > 0.5 && isHit == false)
+        if (hero != null && time < animationDuration && time > _whenDamadge && isHit == false)
         {
             hero.TakeDamage(_damage);
             isHit = true;
