@@ -66,15 +66,24 @@ public class FieldOfView : MonoBehaviour
                     canSeePlayer = true;
                     _rigidbody.rotation = getAngleToHero();
                     _rigidbody.AddRelativeForce(Vector3.forward * _forceMove);
-                    _animator.Play("zombie_walk_forward");
+                    _animator.SetBool("is-walking", true);
                 }
                 else
+                {
                     canSeePlayer = false;
+                    _animator.SetBool("is-walking",  false);
+                }
             }
             else
+            {
                 canSeePlayer = false;
+                _animator.SetBool("is-walking",  false);
+            }
         }
         else if (canSeePlayer)
+        {
             canSeePlayer = false;
+            _animator.SetBool("is-walking",  false);
+        }
     }
 }
