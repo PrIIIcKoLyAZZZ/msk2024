@@ -198,7 +198,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114062226022497710, guid: a8145fd98e506094980d05080bde9072, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8145fd98e506094980d05080bde9072, type: 3}
 --- !u!1 &102413910 stripped
 GameObject:
@@ -5345,7 +5346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1494686533}
-  - component: {fileID: 1494686534}
   m_Layer: 0
   m_Name: Camera Rotator
   m_TagString: Untagged
@@ -5364,12 +5364,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.069, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1562447950}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1494686534
+--- !u!114 &1494686534 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1539292164050351892, guid: 1c5f02e48a29bdb4dadbfa8c35f7b5ef, type: 3}
   m_PrefabInstance: {fileID: 1539292162826726482}
@@ -5433,6 +5432,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+--- !u!95 &1875521828 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95446636183784616, guid: a8145fd98e506094980d05080bde9072, type: 3}
+  m_PrefabInstance: {fileID: 97162332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1875521830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875521811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.43070334, y: 0.63581955, z: 0.20786777}
+  m_Center: {x: 0.04678911, y: 0.54287463, z: 0.22844413}
+--- !u!114 &1875521831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875521811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69168e4293b34b4b85af137674b9674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trigger: {fileID: 1875521830}
+  _animator: {fileID: 1875521828}
+  _damage: 35
 --- !u!1 &2036949394
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,7 +5579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539292164050351895, guid: 1c5f02e48a29bdb4dadbfa8c35f7b5ef, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1539292164050351895, guid: 1c5f02e48a29bdb4dadbfa8c35f7b5ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5606,6 +5638,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1494686534}
+    - target: {fileID: 240032893, guid: 9f9c6788198aee942bbff081419943df, type: 3}
+      propertyPath: _shoot
+      value: 
+      objectReference: {fileID: 240032903}
     - target: {fileID: 240032893, guid: 9f9c6788198aee942bbff081419943df, type: 3}
       propertyPath: _moveSpeed
       value: 200
