@@ -17,6 +17,8 @@ namespace Surv
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private float _thicknessShots;
         [SerializeField] private LayerMask _layermask;
+
+        [SerializeField] private AudioSource _shootSound;
         
         RaycastHit hit;
         Vector3 center;
@@ -26,6 +28,7 @@ namespace Surv
 
         public void Shooting()
         {
+            _shootSound.Play();
             _animator.SetTrigger("is-shooting");
             _particle.Play();
             center = _hero.transform.position + _hero.transform.forward.normalized * _range / 2;
