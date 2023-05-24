@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Surv;
 using Unity.VisualScripting;
@@ -14,6 +15,14 @@ public class Target : MonoBehaviour
     [SerializeField] private Hero _hero;
     [SerializeField] private Rigidbody _rigidbody;
 
+    private void RotateToHero()
+    {
+        Vector3 direction = _hero.transform.position - _collider.transform.position;
+        direction = direction.normalized;
+        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90f;
+        _rigidbody.rotation = Quaternion.Euler(0, -angle, 0);
+    }
+
     public void TakeDamage(int damage)
     {
         Vector3 direction = _collider.transform.position - _hero.transform.position;
@@ -24,6 +33,10 @@ public class Target : MonoBehaviour
         {
             _animator.SetTrigger("is-dead");
             StartCoroutine(Die());
+        }
+        else
+        {
+            RotateToHero();
         }
     }
 
