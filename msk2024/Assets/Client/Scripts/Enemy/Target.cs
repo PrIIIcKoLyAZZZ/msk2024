@@ -32,6 +32,7 @@ public class Target : MonoBehaviour
         if (_health <= 0)
         {
             _animator.SetTrigger("is-dead");
+            _this.layer = 0;
             StartCoroutine(Die());
         }
         else

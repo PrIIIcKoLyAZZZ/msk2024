@@ -20,7 +20,7 @@ namespace Surv
 
         [SerializeField] private AudioSource _shootSound;
         
-        RaycastHit hit;
+        Transform hit;
         Vector3 center;
         Vector3 halfExtents;
 
@@ -36,10 +36,19 @@ namespace Surv
             
             RaycastHit[] hits = Physics.BoxCastAll(center, halfExtents, _hero.transform.forward,
                 _hero.transform.rotation, _range, _layermask);
-            foreach (var e in hits)
-            {
-                e.transform.GetComponent<Target>()?.TakeDamage(_damage);
-            }
+            float min = 100f;
+            if(hits != null)
+                foreach (var eHit in hits)
+                {
+                    float a = (_hero.transform.position - eHit.transform.position).magnitude;
+                    if (min - a > 0.01)
+                    {
+                        min = a;
+                        hit = eHit.transform;
+                    }
+                }
+            
+            hit?.GetComponent<Target>()?.TakeDamage(_damage);
         }
         
     #if UNITY_EDITOR
