@@ -50,7 +50,7 @@ namespace Surv
                     }
                 }
             
-            hit.TakeDamage(_damage);
+            hit?.TakeDamage(_damage);
         }
         
     #if UNITY_EDITOR
