@@ -23,7 +23,9 @@ namespace Surv
         {
             //Debug.Log(context.phase);
             if(context.phase == InputActionPhase.Performed)
+            {
                 _hero.Shooting();
+            }
         }
 
         public void Rotation(InputAction.CallbackContext context)

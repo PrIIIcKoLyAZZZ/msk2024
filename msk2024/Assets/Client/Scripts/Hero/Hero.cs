@@ -14,7 +14,7 @@ namespace Surv
             _health -= damage;
             if (_health <= 0)
             {
-                _animator.SetTrigger("is-dead");
+                //_animator.SetTrigger("is-dead");
                 Time.timeScale = 0;
             }
         }
