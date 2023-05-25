@@ -20,7 +20,7 @@ namespace Surv
 
         [SerializeField] private AudioSource _shootSound;
         
-        Transform hit;
+        Target hit;
         Vector3 center;
         Vector3 halfExtents;
 
@@ -38,17 +38,19 @@ namespace Surv
                 _hero.transform.rotation, _range, _layermask);
             float min = 100f;
             if(hits != null)
-                foreach (var eHit in hits)
+                foreach (RaycastHit eHit in hits)
                 {
+                    var temp = eHit.transform.GetComponent<Target>();
+                    temp.RotateToHero();
                     float a = (_hero.transform.position - eHit.transform.position).magnitude;
                     if (min - a > 0.01)
                     {
                         min = a;
-                        hit = eHit.transform;
+                        hit = temp;
                     }
                 }
             
-            hit?.GetComponent<Target>()?.TakeDamage(_damage);
+            hit.TakeDamage(_damage);
         }
         
     #if UNITY_EDITOR

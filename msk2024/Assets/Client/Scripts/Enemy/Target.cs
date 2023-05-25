@@ -15,7 +15,7 @@ public class Target : MonoBehaviour
     [SerializeField] private Hero _hero;
     [SerializeField] private Rigidbody _rigidbody;
 
-    private void RotateToHero()
+    public void RotateToHero()
     {
         Vector3 direction = _hero.transform.position - _collider.transform.position;
         direction = direction.normalized;
@@ -34,10 +34,6 @@ public class Target : MonoBehaviour
             _animator.SetTrigger("is-dead");
             _this.layer = 0;
             StartCoroutine(Die());
-        }
-        else
-        {
-            RotateToHero();
         }
     }
 
