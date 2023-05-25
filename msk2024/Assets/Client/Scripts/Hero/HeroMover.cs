@@ -9,7 +9,7 @@ namespace Surv
     public class HeroMover : MonoBehaviour
     {
         [SerializeField] private float _moveSpeed;
-        [SerializeField] private float _rotateSpeed;
+        [SerializeField] private float _durationShooting;
         [SerializeField] private Camera heroCamera;
         [SerializeField] private Shoot _shoot;
         [SerializeField] private AudioSource _walkSound;
@@ -17,6 +17,7 @@ namespace Surv
         public float directionZ;
         public float directionX;
         public Vector3 mousePosition;
+        private int _canMove = 1;
         private Vector3 absMousePosition;
 
         private Rigidbody _rigidbody;
@@ -37,14 +38,22 @@ namespace Surv
             return Quaternion.Euler(0, -angle, 0);
         }
 
+        IEnumerator MakeCanMove()
+        {
+            yield return new WaitForSeconds(_durationShooting);
+            _canMove = 1;
+        }
+
         public void Shooting()
         {
+            _canMove = 0;
             _shoot.Shooting();
+            StartCoroutine(MakeCanMove());
         }
 
         private void FixedUpdate()
         {
-            Vector3 force = new Vector3(directionX, 0, directionZ) * _moveSpeed;
+            Vector3 force = new Vector3(directionX, 0, directionZ) * (_moveSpeed * _canMove); 
             _animator.SetBool("is-running", directionX != 0 || directionZ != 0);
             if(directionX != 0 || directionZ != 0)
             {
@@ -54,6 +63,7 @@ namespace Surv
             }
             else
             {
+                _walkSound.Stop();
                 _walkSound.loop = false;
             }
             

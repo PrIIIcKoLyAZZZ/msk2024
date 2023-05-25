@@ -6,19 +6,13 @@ using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
-    [SerializeField] private BoxCollider _trigger;
     [SerializeField] private Animator _animator ;
     [SerializeField] private int _damage;
     [SerializeField] private float _whenDamadge;
     private float animationDuration = 1.5f;
 
     private bool isHit;
-
     private float time;
-    private void Awake()
-    {
-        _trigger = GetComponent<BoxCollider>();
-    }
 
     private void Update()
     {
