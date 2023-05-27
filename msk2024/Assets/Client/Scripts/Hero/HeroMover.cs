@@ -53,10 +53,10 @@ namespace Surv
 
         private void FixedUpdate()
         {
-            Vector3 force = new Vector3(directionX, 0, directionZ) * (_moveSpeed * _canMove); 
-            _animator.SetBool("is-running", directionX != 0 || directionZ != 0);
+            Vector3 force = new Vector3(directionX, 0, directionZ) * (_moveSpeed * _canMove);
             if(directionX != 0 || directionZ != 0)
             {
+                _animator.SetBool("is-running", directionX != 0 || directionZ != 0);
                 if(_walkSound.loop == false)
                     _walkSound.Play();
                 _walkSound.loop = true;

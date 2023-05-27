@@ -48,6 +48,12 @@ public class FieldOfView : MonoBehaviour
         return Quaternion.Euler(0, -angle1, 0);
     }
 
+    private void FixedUpdate()
+    {
+        if(canSeePlayer)
+            _rigidbody.rotation = getAngleToHero();
+    }
+
     private void FieldOfViewCheck()
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
