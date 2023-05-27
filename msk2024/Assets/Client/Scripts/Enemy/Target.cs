@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
     {
         Vector3 direction = _hero.transform.position - _collider.transform.position;
         direction = direction.normalized;
-        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         _rigidbody.rotation = Quaternion.Euler(0, -angle, 0);
     }
 

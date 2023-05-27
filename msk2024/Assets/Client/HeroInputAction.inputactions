@@ -152,7 +152,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "positive",
                     "id": "8cd75da1-a484-4cd6-867e-f4036d671f35",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -163,7 +163,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "negative",
                     "id": "663fd773-17aa-4ba1-a912-e65c05bf44fe",
                     "path": "<Keyboard>/e",
                     "interactions": "",
