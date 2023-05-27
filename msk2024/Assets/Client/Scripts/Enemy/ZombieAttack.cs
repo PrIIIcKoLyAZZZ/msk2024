@@ -24,7 +24,7 @@ public class ZombieAttack : MonoBehaviour
         Hero hero = other.GetComponentInParent<Hero>();
         if (hero != null && time > animationDuration)
         {
-            Debug.Log(hero);
+            //Debug.Log(hero);
             _animator.SetTrigger("is-attack");
             isHit = false;
             time = 0;

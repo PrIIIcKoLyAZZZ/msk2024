@@ -374,9 +374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6608908f1a999f48b6c0c944e742bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 15
+  radius: 50
   angle: 45
-  playerRef: {fileID: 0}
+  playerRef: {fileID: 3101166667673432314, guid: 94f68945ba597b74d829c276420d9f92, type: 3}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
@@ -385,7 +385,7 @@ MonoBehaviour:
     m_Bits: 0
   canSeePlayer: 0
   _rigidbody: {fileID: 1084252015527048962}
-  _hero: {fileID: 0}
+  _hero: {fileID: 1295602911920980774, guid: 94f68945ba597b74d829c276420d9f92, type: 3}
   _forceMove: 80
 --- !u!114 &1084252015527048974
 MonoBehaviour:
@@ -405,7 +405,7 @@ MonoBehaviour:
   delayDestroy: 2
   _collider: {fileID: 1084252015527048963}
   _forseFromBullet: 2
-  _hero: {fileID: 0}
+  _hero: {fileID: 1295602911920980774, guid: 94f68945ba597b74d829c276420d9f92, type: 3}
   _rigidbody: {fileID: 1084252015527048962}
 --- !u!114 &1084252015527048975
 MonoBehaviour:
