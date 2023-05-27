@@ -16,17 +16,12 @@ public class MainMenu : MonoBehaviour
 
     private AsyncOperation loadingSceneOperation;
 
-    public async void PlayGame()
+    private async void LoadScene()
     {
-        _loaderScrean.SetActive(true);
-        
         loadingSceneOperation =
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
         loadingSceneOperation.allowSceneActivation = false;
-        
-        _progressBar.fillAmount = 0;
-        _target = 0;
 
         do
         {
@@ -34,10 +29,17 @@ public class MainMenu : MonoBehaviour
             _target = loadingSceneOperation.progress;
         } while (loadingSceneOperation.isDone);
 
-        await Task.Delay(10000);
-
+        await Task.Delay(1000);
+        
         loadingSceneOperation.allowSceneActivation = true;
-        _loaderScrean.SetActive(false);
+    }
+
+    public void PlayGame()
+    {
+        _loaderScrean.SetActive(true);
+        _progressBar.fillAmount = 0;
+        _target = 0;
+        LoadScene();
     }
 
     public void Authors()

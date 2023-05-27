@@ -25,6 +25,8 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(_this.IsDestroyed())
+            return;
         Vector3 direction = _collider.transform.position - _hero.transform.position;
         direction = direction.normalized;
         _health -= damage;
