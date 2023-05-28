@@ -9,7 +9,7 @@ namespace Surv
     {
         [SerializeField] private int _health;
         [SerializeField] private Animator _animator;
-        [SerializeField] private Canvas _deadScrean;
+        [SerializeField] private GameObject _deadScrean;
 
         private int _standartHP;
 
@@ -23,9 +23,8 @@ namespace Surv
             _health -= damage;
             if (_health <= 0)
             {
-                //_animator.SetTrigger("is-dead");
-                
                 Time.timeScale = 0;
+                _deadScrean.SetActive(true);
             }
         }
 
