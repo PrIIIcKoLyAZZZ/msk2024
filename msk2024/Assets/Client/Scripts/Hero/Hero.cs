@@ -9,6 +9,7 @@ namespace Surv
     {
         [SerializeField] private int _health;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Canvas _deadScrean;
 
         private int _standartHP;
 
@@ -23,6 +24,7 @@ namespace Surv
             if (_health <= 0)
             {
                 //_animator.SetTrigger("is-dead");
+                
                 Time.timeScale = 0;
             }
         }

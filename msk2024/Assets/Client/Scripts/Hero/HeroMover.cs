@@ -52,9 +52,12 @@ namespace Surv
 
         public void Shooting()
         {
-            _canMove = 0;
-            _shoot.Shooting();
-            StartCoroutine(MakeCanMove());
+            if(Time.timeScale != 0)
+            {
+                _canMove = 0;
+                _shoot.Shooting();
+                StartCoroutine(MakeCanMove());
+            }
         }
 
         private void FixedUpdate()
