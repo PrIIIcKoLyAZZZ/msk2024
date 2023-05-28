@@ -25,6 +25,7 @@ namespace Surv
             {
                 Time.timeScale = 0;
                 _deadScrean.SetActive(true);
+                Cursor.visible = true;
             }
         }
 

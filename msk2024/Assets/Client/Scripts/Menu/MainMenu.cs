@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        _authors.SetActive(false);
         _loaderScrean.SetActive(true);
         _progressBar.fillAmount = 0;
         _target = 0;
