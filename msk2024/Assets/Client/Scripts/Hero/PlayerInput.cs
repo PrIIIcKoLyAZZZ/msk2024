@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Surv
@@ -30,12 +31,12 @@ namespace Surv
 
         public void Rotation(InputAction.CallbackContext context)
         {
-            _hero.mousePosition = context.ReadValue<Vector2>();
+            _hero.mousePosition = context.ReadValue<float>();
         }
 
         public void CameraRotation(InputAction.CallbackContext context)
         {
-            _camera.rotateDirection = context.ReadValue<float>();
+            //_camera.rotateDirection = context.ReadValue<float>();
         }
     }
 }

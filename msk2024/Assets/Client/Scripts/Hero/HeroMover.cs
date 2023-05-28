@@ -10,13 +10,14 @@ namespace Surv
     {
         [SerializeField] private float _moveSpeed;
         [SerializeField] private float _durationShooting;
+        [SerializeField] private float _rotationSpeed;
         [SerializeField] private Camera heroCamera;
         [SerializeField] private Shoot _shoot;
         [SerializeField] private AudioSource _walkSound;
  
         public float directionZ;
         public float directionX;
-        public Vector3 mousePosition;
+        public float mousePosition;
         private int _canMove = 1;
         private Vector3 absMousePosition;
 
@@ -27,15 +28,6 @@ namespace Surv
         {
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
-        }
-
-        private Quaternion getAngleToCursore()
-        {
-            mousePosition.z = 10;
-            absMousePosition =  heroCamera.ScreenToWorldPoint(mousePosition);
-            Vector3 lookDir = absMousePosition - _rigidbody.position;
-            float angle = Mathf.Atan2(lookDir.z, lookDir.x) * Mathf.Rad2Deg - 90f;
-            return Quaternion.Euler(0, -angle, 0);
         }
 
         IEnumerator MakeCanMove()
@@ -69,7 +61,11 @@ namespace Surv
             
             _rigidbody.AddRelativeForce(force);
             
-             _rigidbody.rotation = getAngleToCursore();
+        }
+
+        private void Update()
+        {
+            transform.rotation = Quaternion.Euler(0, _rigidbody.rotation.y - mousePosition, 0);
         }
     }
 }

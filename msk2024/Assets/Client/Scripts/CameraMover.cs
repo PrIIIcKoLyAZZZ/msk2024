@@ -8,11 +8,17 @@ public class CameraMover : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float _cameraSpeed;
+    [SerializeField] float speed = 20.0f;
     public float rotateDirection;
+
+    private void Awake()
+    {
+        Cursor.visible = false;
+    }
 
     private void LateUpdate()
     {
         transform.position = _target.position;
-        transform.Rotate(0, rotateDirection * _cameraSpeed, 0);
+        transform.rotation = _target.rotation;
     }
 }
