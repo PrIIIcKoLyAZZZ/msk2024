@@ -60,12 +60,11 @@ namespace Surv
             }
             
             _rigidbody.AddRelativeForce(force);
-            
         }
 
         private void Update()
         {
-            transform.rotation = Quaternion.Euler(0, _rigidbody.rotation.y - mousePosition, 0);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.y + mousePosition * _rotationSpeed, 0);
         }
     }
 }

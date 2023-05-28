@@ -36,7 +36,7 @@
                     "name": "Rotation",
                     "type": "Value",
                     "id": "4e319aa8-d774-41ff-a0c3-c474430b9fbd",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -132,7 +132,7 @@
                 {
                     "name": "",
                     "id": "ddfa6cf1-0e64-4f76-8d50-5c78a23bb3be",
-                    "path": "<Mouse>/position/y",
+                    "path": "<Mouse>/position/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
