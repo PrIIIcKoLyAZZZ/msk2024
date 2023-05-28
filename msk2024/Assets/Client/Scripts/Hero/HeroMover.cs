@@ -23,11 +23,25 @@ namespace Surv
 
         private Rigidbody _rigidbody;
         private Animator _animator;
+        private float _standartMoveSpeed;
 
         private void Awake()
         {
+            _standartMoveSpeed = _moveSpeed;
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
+        }
+
+        IEnumerator StopSpeedBonus()
+        {
+            yield return new WaitForSeconds(5);
+            _moveSpeed = _standartMoveSpeed;
+        }
+        
+        public void UpMoveSpeed()
+        {
+            _moveSpeed *= 2;
+            StartCoroutine(StopSpeedBonus());
         }
 
         IEnumerator MakeCanMove()

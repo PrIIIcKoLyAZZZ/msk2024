@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,14 @@ namespace Surv
     {
         [SerializeField] private int _health;
         [SerializeField] private Animator _animator;
-        
+
+        private int _standartHP;
+
+        private void Start()
+        {
+            _standartHP = _health;
+        }
+
         public void TakeDamage(int damage)
         {
             _health -= damage;
@@ -17,6 +25,11 @@ namespace Surv
                 //_animator.SetTrigger("is-dead");
                 Time.timeScale = 0;
             }
+        }
+
+        public void RefrashHealth()
+        {
+            _health = _standartHP;
         }
     }
 }

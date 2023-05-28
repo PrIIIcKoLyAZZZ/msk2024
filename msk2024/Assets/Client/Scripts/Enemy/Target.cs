@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using Surv;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Target : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class Target : MonoBehaviour
     [SerializeField] private float _forseFromBullet;
     [SerializeField] private Hero _hero;
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private GameObject[] poison;
 
     public bool isDead = false;
     
@@ -42,6 +45,16 @@ public class Target : MonoBehaviour
             isDead = true;
             _this.layer = 0;
             StartCoroutine(Die());
+            SpawnPoison();
+        }
+    }
+
+    private void SpawnPoison()
+    {
+        int p =  (int)(Random.Range(0, 200) / 10f);
+        if (p < poison.Length)
+        {
+            Instantiate(poison[p], transform.position, quaternion.identity);
         }
     }
 
