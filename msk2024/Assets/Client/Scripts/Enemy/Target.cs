@@ -15,12 +15,17 @@ public class Target : MonoBehaviour
     [SerializeField] private Hero _hero;
     [SerializeField] private Rigidbody _rigidbody;
 
+    public bool isDead = false;
+    
     public void RotateToHero()
     {
-        Vector3 direction = _hero.transform.position - _collider.transform.position;
-        direction = direction.normalized;
-        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90f;
-        _rigidbody.rotation = Quaternion.Euler(0, -angle, 0);
+        if(isDead == false)
+        {
+            Vector3 direction = _hero.transform.position - _collider.transform.position;
+            direction = direction.normalized;
+            float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90f;
+            _rigidbody.rotation = Quaternion.Euler(0, -angle, 0);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -34,6 +39,7 @@ public class Target : MonoBehaviour
         if (_health <= 0)
         {
             _animator.SetTrigger("is-dead");
+            isDead = true;
             _this.layer = 0;
             StartCoroutine(Die());
         }

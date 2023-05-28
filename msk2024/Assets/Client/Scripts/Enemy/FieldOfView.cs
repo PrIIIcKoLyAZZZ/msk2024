@@ -20,8 +20,14 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Hero _hero;
     [SerializeField] private float _forceMove;
+    private Target _I;
 
     private Animator _animator;
+
+    private void Awake()
+    {
+        _I = GetComponent<Target>();
+    }
 
     private void Start()
     {
@@ -50,7 +56,7 @@ public class FieldOfView : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(canSeePlayer)
+        if(canSeePlayer && _I.isDead == false)
             _rigidbody.rotation = getAngleToHero();
     }
 
@@ -58,7 +64,7 @@ public class FieldOfView : MonoBehaviour
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-        if (rangeChecks.Length != 0)
+        if (rangeChecks.Length != 0 && _I.isDead == false)
         {
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - transform.position).normalized;
